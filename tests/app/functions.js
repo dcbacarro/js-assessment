@@ -20,20 +20,6 @@ describe('functions', function() {
     expect(sayItCalled).to.be.ok;
   });
 
-  it('you should be able to change the context in which a function is called', function() {
-    var speak = function() {
-      return sayIt(this.greeting, this.name, '!!!');
-    };
-    var obj = {
-      greeting: 'Hello',
-      name: 'Rebecca'
-    };
-
-    var result = functionsAnswers.speak(speak, obj);
-    expect(result).to.eql('Hello, Rebecca!!!');
-    expect(sayItCalled).to.be.ok;
-  });
-
   it('you should be able to return a function from a function', function() {
     expect(functionsAnswers.functionFunction('Hello')('world')).to.eql('Hello, world');
     expect(functionsAnswers.functionFunction('Hai')('can i haz funxtion?')).to.eql('Hai, can i haz funxtion?');
@@ -114,32 +100,5 @@ describe('functions', function() {
     expect(functionsAnswers.partialUsingArguments(partialMe, a)(b, c)).to.eql(partialMe(a, b, c));
     expect(functionsAnswers.partialUsingArguments(partialMe, a, b)(c)).to.eql(partialMe(a, b, c));
     expect(functionsAnswers.partialUsingArguments(partialMe, a, b, c)()).to.eql(partialMe(a, b, c));
-  });
-
-  it('you should be able to curry existing functions', function () {
-    var curryMe = function (x, y, z) {
-      return x / y * z;
-    };
-
-    var a = Math.random();
-    var b = Math.random();
-    var c = Math.random();
-    var result;
-
-    result = functionsAnswers.curryIt(curryMe);
-    expect(typeof result).to.eql('function');
-    expect(result.length).to.eql(1);
-
-    result = functionsAnswers.curryIt(curryMe)(a);
-    expect(typeof result).to.eql('function');
-    expect(result.length).to.eql(1);
-
-    result = functionsAnswers.curryIt(curryMe)(a)(b);
-    expect(typeof result).to.eql('function');
-    expect(result.length).to.eql(1);
-
-    result = functionsAnswers.curryIt(curryMe)(a)(b)(c);
-    expect(typeof result).to.eql('number');
-    expect(result).to.eql(curryMe(a, b, c));
   });
 });
