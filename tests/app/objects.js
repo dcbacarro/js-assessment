@@ -29,12 +29,12 @@ describe('objects and context', function() {
     };
   });
 
-  it('you should be able to alter the context in which a method runs', function() {
+  it('Alter the context in which a method runs', function() {
     // define a function for fn so that the following will pass
     expect(objectsAnswers.alterContext(a.sayIt, b)).to.eql('Yo, Rebecca!');
   });
 
-  it('you should be able to iterate over an object\'s "own" properties', function() {
+  it('Iterate over an object\'s "own" properties', function() {
     // define a function for fn so that the following will pass
     C = function() {
       this.foo = 'bar';

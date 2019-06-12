@@ -4,7 +4,7 @@ if ( typeof window === 'undefined' ) {
 }
 
 describe('regular expressions', function() {
-  it('you should be able to detect a number in a string', function() {
+  it('Detect a number in a string', function() {
     expect(regexAnswers.containsNumber('abc123')).to.eql(true);
     expect(regexAnswers.containsNumber('abc')).to.eql(false);
   });

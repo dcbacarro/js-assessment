@@ -14,18 +14,18 @@ describe('functions', function() {
     sayItCalled = false;
   });
 
-  it('you should be able to use an array as arguments when calling a function', function() {
+  it('Use an array as arguments when calling a function', function() {
     var result = functionsAnswers.argsAsArray(sayIt, [ 'Hello', 'Ellie', '!' ]);
     expect(result).to.eql('Hello, Ellie!');
     expect(sayItCalled).to.be.ok;
   });
 
-  it('you should be able to return a function from a function', function() {
+  it('Return a function from a function', function() {
     expect(functionsAnswers.functionFunction('Hello')('world')).to.eql('Hello, world');
     expect(functionsAnswers.functionFunction('Hai')('can i haz funxtion?')).to.eql('Hai, can i haz funxtion?');
   });
 
-  it('you should be able to use closures', function () {
+  it('Use closures', function () {
     var arr = [ Math.random(), Math.random(), Math.random(), Math.random() ];
     var square = function (x) { return x * x; };
 
@@ -37,13 +37,13 @@ describe('functions', function() {
     }
   });
 
-  it('you should be able to create a "partial" function', function() {
+  it('Create a "partial" function', function() {
     var partial = functionsAnswers.partial(sayIt, 'Hello', 'Ellie');
     expect(partial('!!!')).to.eql('Hello, Ellie!!!');
     expect(sayItCalled).to.be.ok;
   });
 
-  it('you should be able to use arguments', function () {
+  it('Use arguments', function () {
     var a = Math.random();
     var b = Math.random();
     var c = Math.random();
@@ -55,7 +55,7 @@ describe('functions', function() {
     expect(functionsAnswers.useArguments(a, b, c, d)).to.eql(a + b + c + d);
   });
 
-  it('you should be able to apply functions with arbitrary numbers of arguments', function () {
+  it('Apply functions with arbitrary numbers of arguments', function () {
     (function () {
       var a = Math.random();
       var b = Math.random();
@@ -88,7 +88,7 @@ describe('functions', function() {
     }());
   });
 
-  it('you should be able to create a "partial" function for variable number of applied arguments', function () {
+  it('Create a "partial" function for variable number of applied arguments', function () {
     var partialMe = function (x, y, z) {
       return x / y * z;
     };
